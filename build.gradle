@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "fun.czw06.noairminingpenalty"
-version = "1.0.0"
+version = project.mod_version
 
 repositories {
     mavenCentral()
@@ -14,17 +14,17 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
-    // 如果不需要 Fabric API，可以不加
-    // modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21) // 用 JDK 21 编译
+        languageVersion = JavaLanguageVersion.of(21) // JDK 21
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
-    options.release = 17   // 编译成 Java 17 字节码，兼容 1.16–1.21
+    options.release = 21
 }
