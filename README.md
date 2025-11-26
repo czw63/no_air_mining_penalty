@@ -1,8 +1,9 @@
-# Fabric Example Mod
+# 去除mc的浮空挖掘惩罚
 
-## Setup
+## 字面意思，脚不着地的时候的挖掘速度的惩罚去除
 
-For setup instructions please see the [fabric documentation page](https://docs.fabricmc.net/develop/getting-started/setting-up) that relates to the IDE that you are using.
+个人小服务器里使用的，得服务器客户端双端都装才会起作用
+（我是配合客户端飞行用的）
 
 ## License
 
