@@ -3,7 +3,7 @@ name: Build and Release Mod
 on:
   push:
     tags:
-      - 'v*'   # 当你推送 tag，比如 v1.0.0 时触发
+      - 'v1.0.0'   # 当你推送 tag，比如 v1.0.0 时触发
   workflow_dispatch: # 也可以手动触发
 
 jobs:
