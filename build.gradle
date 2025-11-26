@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'fabric-loom' version '1.1-SNAPSHOT'   // Loom 插件，负责编译 Fabric Mod
+    id 'fabric-loom' version '1.7-SNAPSHOT'   // Loom 插件，负责编译 Fabric Mod
 }
 
 group = "fun.czw06.noairminingpenalty"
