@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'fabric-loom' version '1.1-SNAPSHOT'   // Loom 插件，负责编译 Fabric Mod
+    id 'fabric-loom' version '1.7.4'
 }
 
 group = "fun.czw06.noairminingpenalty"
@@ -12,22 +12,19 @@ repositories {
 }
 
 dependencies {
-    // Fabric Loader
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-    // 如果你不依赖 Fabric API，可以不加
+    // 如果不需要 Fabric API，可以不加
     // modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17) // Minecraft 1.16+ 要求至少 Java 17
+        languageVersion = JavaLanguageVersion.of(21) // 用 JDK 21 编译
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
-    options.release = 17
+    options.release = 17   // 编译成 Java 17 字节码，兼容 1.16–1.21
 }
