@@ -2,9 +2,9 @@ name: Build and Release Mod
 
 on:
   push:
-    tags:
-      - 'v1.0.0'   # 当你推送 tag，比如 v1.0.0 时触发
-  workflow_dispatch: # 也可以手动触发
+    branches:
+      - 1.21   # 你的主分支
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,15 +23,11 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: mod-jar
-          path: build/libs/*.jar
-
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: v1.0.0
+          name: "No Air Mining Penalty v1.0.0"
           files: build/libs/*.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
