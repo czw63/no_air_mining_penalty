@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'fabric-loom' version '1.9.2'
 }
 
 group = "fun.czw06.noairminingpenalty"
