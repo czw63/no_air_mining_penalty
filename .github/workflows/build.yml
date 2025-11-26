@@ -2,8 +2,8 @@ name: Build and Release Mod
 
 on:
   push:
-    tags:
-      - 'v1.0.0'   # 当你推送 tag，比如 v1.0.0 时触发
+    branches:
+      - main   # 当你推送到 main 分支时触发
   workflow_dispatch: # 也可以手动触发
 
 jobs:
@@ -32,6 +32,10 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: v1.0.0   # 固定 tag
+          name: "No Air Mining Penalty v1.0.0"
           files: build/libs/*.jar
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
