@@ -7,27 +7,11 @@ base {
     archivesName = "no_air_mining_penalty-neoforge-universal"
 }
 
-group = 'fun.czw06.noairminingpenalty'
-version = '1.0.0'
-
-base {
-    archivesName = "no_air_mining_penalty-neoforge-${minecraft_version}"
-}
-
-java {
-    // 这里规定必须用 JDK 21
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
-}
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 repositories {
-    maven {
-        name = "Lss233 Minecraft Repository"
-        url = 'https://lss233.littleservice.cn/repositories/minecraft'
-    }
-    // 其他仓库
-    // ...
+    mavenCentral()
+    maven { url = "https://maven.neoforged.net/releases/" }
 }
 
 dependencies {
@@ -35,5 +19,12 @@ dependencies {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+    options.encoding = "UTF-8"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand "version": project.version
+    }
 }

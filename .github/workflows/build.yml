@@ -2,11 +2,9 @@ name: Build and Release
 
 on:
   push:
-    branches: [ main, work ]
     tags:
-      - 'v*'               # 当推送 v1.0.0, v1.0.1 等标签时触发
-  pull_request:
-    branches: [ main ]
+      - 'v*'               # 推送 v1.0.0, v1.0.1 等标签时触发
+  workflow_dispatch:       # 允许手动触发
 
 jobs:
   build:
@@ -30,37 +28,19 @@ jobs:
       - name: Build NeoForge module
         run: ./gradlew :neoforge:build --no-daemon
 
-      - name: Rename Fabric jar
+      - name: List generated JAR files
         run: |
-          mkdir -p artifacts
-          # 查找构建出的 jar 文件（通常只有一个）
-          FABRIC_JAR=$(ls fabric/build/libs/*.jar | grep -v sources | grep -v shadow | head -n 1)
-          cp "$FABRIC_JAR" "artifacts/no_air_mining_penalty-fabric-universal.jar"
+          echo "Fabric JARs:"
+          ls -l fabric/build/libs/
+          echo "NeoForge JARs:"
+          ls -l neoforge/build/libs/
 
-      - name: Rename NeoForge jar
-        run: |
-          NEOFORGE_JAR=$(ls neoforge/build/libs/*.jar | grep -v sources | grep -v shadow | head -n 1)
-          cp "$NEOFORGE_JAR" "artifacts/no_air_mining_penalty-neoforge-universal.jar"
-
-      - name: Upload artifacts (for CI)
-        uses: actions/upload-artifact@v4
-        with:
-          name: mod-jars
-          path: artifacts/*.jar
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: mod-jars
-          path: artifacts
-
-      - name: Create Release and upload assets
+      - name: Create GitHub Release and upload JARs
         uses: softprops/action-gh-release@v1
         with:
-          files: artifacts/*.jar
+          files: |
+            fabric/build/libs/*.jar
+            neoforge/build/libs/*.jar
           generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

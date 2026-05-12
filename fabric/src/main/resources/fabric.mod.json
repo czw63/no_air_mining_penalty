@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "no_air_mining_penalty",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "No Air Mining Penalty",
   "description": "Removes mining penalty when underwater without air.",
   "authors": ["czw06"],
