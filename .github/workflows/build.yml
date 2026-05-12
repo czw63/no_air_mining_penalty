@@ -6,6 +6,9 @@ on:
       - 'v*'               # 推送 v1.0.0, v1.0.1 等标签时触发
   workflow_dispatch:       # 允许手动触发
 
+permissions:
+  contents: write        # 添加这一整块
+  
 jobs:
   build:
     runs-on: ubuntu-latest
