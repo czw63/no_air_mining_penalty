@@ -1,0 +1,17 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            name = "Fabric"
+            url = "https://maven.fabricmc.net/"
+        }
+        maven {
+            name = "NeoForge"
+            url = "https://maven.neoforged.net/releases/"
+        }
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'no_air_mining_penalty-parent'
+include 'fabric', 'neoforge'

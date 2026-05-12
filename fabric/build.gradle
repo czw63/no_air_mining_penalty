@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'fabric-loom' version '1.9.2'
+}
+
+base {
+    archivesName = "no_air_mining_penalty-fabric-universal"
+}
+
+group = "fun.czw06.noairminingpenalty"
+version = "1.0.0"
+
+repositories {
+    maven {
+        name = "Lss233 Minecraft Repository"
+        url = 'https://lss233.littleservice.cn/repositories/minecraft'
+    }
+    // 其他仓库
+    // ...
+}
+
+dependencies {
+    // Minecraft 本体（必须）
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // 使用 Yarn 映射（1.21.1 依然可用，且你的代码是 Yarn 命名）
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    // Fabric Loader
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = 21
+}

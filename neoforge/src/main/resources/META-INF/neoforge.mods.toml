@@ -1,0 +1,18 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[mods]]
+modId="no_air_mining_penalty"
+version="1.0.0"
+displayName="No Air Mining Penalty"
+logoFile="logo.png"
+description='''
+Removes the mining speed penalty when the player is not on the ground.
+'''
+[[dependencies.no_air_mining_penalty]]
+    modId="neoforge"
+    mandatory=true
+    versionRange="[21,)"
+    ordering="NONE"
+    side="BOTH"

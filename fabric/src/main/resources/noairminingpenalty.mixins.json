@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fun.czw06.noairminingpenalty.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "NoAirMiningPenaltyMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

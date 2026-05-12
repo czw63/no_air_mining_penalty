@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "no_air_mining_penalty",
+  "version": "1.0.1",
+  "name": "No Air Mining Penalty",
+  "description": "Removes mining penalty when underwater without air.",
+  "authors": ["czw06"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+  },
+  "mixins": ["noairminingpenalty.mixins.json"],
+"depends": {
+  "minecraft": ">=1.21.1 <1.21.11"
+}
+}
