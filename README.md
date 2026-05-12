@@ -5,7 +5,7 @@
 个人小服务器里使用的，得服务器客户端双端都装才会起作用
 （我是配合[客户端飞行](https://github.com/ReallyChooseC/Client-Flight-Mod)用的）
 
-目前之测试过fabric的1.21.6 1.21.10以及neoforge的1.21.1能正常使用，其他版本请个人测试。
+目前只测试过fabric的1.21.6 1.21.10以及neoforge的1.21.1能正常使用，其他版本请个人测试。
 
 ## License
 
