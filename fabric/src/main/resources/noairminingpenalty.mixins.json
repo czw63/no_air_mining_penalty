@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "fun.czw06.noairminingpenalty.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_25",
   "mixins": [
     "NoAirMiningPenaltyMixin"
   ],

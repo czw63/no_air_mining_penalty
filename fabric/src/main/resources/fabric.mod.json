@@ -1,16 +1,17 @@
 {
   "schemaVersion": 1,
   "id": "no_air_mining_penalty",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "name": "No Air Mining Penalty",
-  "description": "Removes mining penalty when underwater without air.",
+  "description": "Removes the mining speed penalty while the player is not standing on the ground.",
   "authors": ["czw06"],
   "license": "MIT",
   "environment": "*",
-  "entrypoints": {
-  },
+  "entrypoints": {},
   "mixins": ["noairminingpenalty.mixins.json"],
-"depends": {
-  "minecraft": ">=1.21.1 <1.21.11"
-}
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "~26.3",
+    "java": ">=25"
+  }
 }
